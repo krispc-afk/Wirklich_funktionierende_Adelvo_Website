@@ -3,12 +3,265 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Book a Free Consultation - Adelvo Agency">
-  <title>Book a Call - Adelvo Agency</title>
+  <meta name="description" content="Book a call with Adelvo to discuss your automation use case.">
+  <title>Book a Call - Adelvo</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    :root {
+      --call-bg: #030508;
+      --call-card: #0b0f19;
+      --call-line: rgba(102, 252, 241, 0.2);
+    }
+    .call-page {
+      background: var(--call-bg);
+      color: #e5e7eb;
+      font-family: var(--font-family);
+    }
+    .call-page h1,
+    .call-page h2,
+    .call-page h3,
+    .call-page h4 {
+      color: #fff;
+    }
+    .call-page .section {
+      padding: clamp(3rem, 6vw, 4.75rem) 0;
+    }
+    .hero-call {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(80% 80% at 60% 20%, rgba(102,252,241,0.1), transparent 60%), var(--call-bg);
+    }
+    .hero-call::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.9) 100%);
+      z-index: 0;
+    }
+    .hero-call .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .call-label {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #66fcf1;
+      font-weight: 700;
+    }
+    .call-subheadline {
+      max-width: 760px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .hero-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(102,252,241,0.45), transparent);
+      margin-top: 1.25rem;
+      border: none;
+    }
+    .meta-chips {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      align-items: center;
+    }
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--call-line);
+      color: #cbd5e1;
+    }
+    .two-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--call-card);
+      border: 1px solid var(--call-line);
+      border-radius: 0.9rem;
+      padding: 1.25rem;
+      display: grid;
+      gap: 0.75rem;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+    }
+    .card-title {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: #cbd5e1;
+      display: grid;
+      gap: 0.35rem;
+    }
+    .card li {
+      line-height: 1.5;
+    }
+    .icon-check {
+      color: #66fcf1;
+    }
+    .icon-cross {
+      color: #ff6b6b;
+    }
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .flow-card {
+      background: var(--call-card);
+      border: 1px solid var(--call-line);
+      border-radius: 0.85rem;
+      padding: 1rem;
+      display: grid;
+      gap: 0.4rem;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    .flow-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 42px rgba(0,0,0,0.3);
+    }
+    .flow-title {
+      margin: 0;
+      color: #fff;
+      font-weight: 700;
+    }
+    .flow-desc {
+      margin: 0;
+      color: #cbd5e1;
+    }
+    .icon-circle {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.75rem;
+      display: grid;
+      place-items: center;
+      background: rgba(102, 252, 241, 0.12);
+      color: #66fcf1;
+      font-size: 1.1rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .booking-area {
+      background: var(--call-card);
+      border: 1px solid var(--call-line);
+      border-radius: 1rem;
+      padding: clamp(1.5rem, 3vw, 2rem);
+      display: grid;
+      gap: 0.8rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .form-placeholder {
+      border: 1px dashed rgba(102, 252, 241, 0.5);
+      border-radius: 0.85rem;
+      padding: 2rem;
+      display: grid;
+      place-items: center;
+      color: #cbd5e1;
+      text-align: center;
+      background: rgba(255,255,255,0.02);
+    }
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .audience-card {
+      background: var(--call-card);
+      border: 1px solid var(--call-line);
+      border-radius: 0.85rem;
+      padding: 1rem;
+      display: flex;
+      gap: 0.7rem;
+      align-items: center;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    .audience-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.28);
+    }
+    .after-call {
+      display: grid;
+      gap: 0.75rem;
+    }
+    .after-item {
+      display: flex;
+      gap: 0.7rem;
+      align-items: center;
+      background: var(--call-card);
+      border: 1px solid var(--call-line);
+      border-radius: 0.8rem;
+      padding: 0.9rem 1rem;
+    }
+    .final-cta {
+      background: var(--call-card);
+      border: 1px solid var(--call-line);
+      border-radius: 1rem;
+      padding: clamp(1.8rem, 4vw, 2.4rem);
+      text-align: center;
+      display: grid;
+      gap: 0.75rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .final-cta p {
+      margin: 0;
+      color: #cbd5e1;
+    }
+    .label-eyebrow {
+      font-size: 0.9rem;
+      color: #66fcf1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+    .is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 768px) {
+      .call-page .section {
+        padding: 2.5rem 0;
+      }
+      .hero-call .container {
+        gap: 0.8rem;
+      }
+      .form-placeholder {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
-<body>
-  <!-- HEADER & NAVIGATION -->
+<body class="call-page">
   <header>
     <div class="container">
       <div class="header-content">
@@ -27,97 +280,97 @@
     </div>
   </header>
 
-  <!-- PAGE HERO -->
+  <!-- Hero -->
+  <section class="section hero-call">
+    <div class="container">
+      <p class="call-label reveal">BOOK A CALL</p>
+      <h1 class="reveal">Let’s Talk About Your Use Case</h1>
+      <p class="call-subheadline reveal">A calm, focused conversation to understand your workflow and identify where automation can create reliable outcomes.</p>
+      <div class="meta-chips reveal" aria-label="Call details">
+        <span class="meta-chip">⏱️ 30 minutes</span>
+        <span class="meta-chip">✅ Free of charge</span>
+      </div>
+      <hr class="hero-divider reveal" aria-hidden="true">
+    </div>
+  </section>
+
+  <!-- What this call is / is not -->
   <section class="section">
     <div class="container">
-      <div class="hero reveal">
-        <h1>Let's Build Your Automation Strategy</h1>
-        <p class="subheading">Schedule a free 30-minute consultation. We'll learn about your business, identify automation opportunities, and map out next steps.</p>
+      <h2 class="reveal">What this call is (and is not)</h2>
+      <div class="two-cards">
+        <article class="card reveal">
+          <h3 class="card-title"><span class="icon-circle">✓</span>This call is:</h3>
+          <ul>
+            <li>A focused conversation about your workflows</li>
+            <li>A chance to identify automation opportunities</li>
+            <li>A technical and business-level discussion</li>
+          </ul>
+        </article>
+        <article class="card reveal">
+          <h3 class="card-title"><span class="icon-circle">✕</span>This call is not:</h3>
+          <ul>
+            <li>A generic sales pitch</li>
+            <li>A demo of random tools</li>
+            <li>A commitment or obligation</li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- CALENDLY SECTION -->
+  <!-- What we typically discuss -->
   <section class="section">
     <div class="container">
-      <div class="calendly-wrapper reveal reveal-scale">
-        <!-- Calendly embed - Replace URL with your Calendly link -->
-        <iframe 
-          src="https://calendly.com/your-calendly-url" 
-          width="100%" 
-          height="650" 
-          frameborder="0"
-          style="border-radius: 0.5rem;">
-        </iframe>
-        <!-- Fallback for users without iframe support -->
-        <noscript>
-          <p>If you are having trouble viewing this calendar, <a href="https://calendly.com/your-calendly-url" target="_blank" rel="noopener noreferrer">click here to access Calendly directly</a>.</p>
-        </noscript>
-      </div>
+      <h2 class="reveal">What we typically discuss</h2>
+      <div class="flow-steps" id="flow-steps"></div>
     </div>
   </section>
 
-  <!-- INFO SECTION -->
-  <section class="section section-alt">
-    <div class="container">
-      <h2 class="reveal">What to Expect</h2>
-      <div class="card-grid">
-        <div class="card reveal">
-          <h3>Discovery Call</h3>
-          <p>We'll learn about your business, current workflows, and pain points. You're in control—share what matters most.</p>
-        </div>
-        
-        <div class="card reveal">
-          <h3>Analysis</h3>
-          <p>We identify specific automation opportunities and estimate the impact. Clear ROI before you commit to anything.</p>
-        </div>
-        
-        <div class="card reveal">
-          <h3>Next Steps</h3>
-          <p>If it's a good fit, we outline a clear roadmap and timeline. If not, we'll tell you honestly and point you in the right direction.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ SECTION -->
+  <!-- Booking area -->
   <section class="section">
     <div class="container">
-      <h2 class="reveal">Common Questions</h2>
-      
-      <div class="reveal" style="margin: var(--spacing-2xl) 0;">
-        <h3 style="color: var(--color-accent); margin-bottom: var(--spacing-md);">Is the consultation really free?</h3>
-        <p>Yes. We invest 30 minutes to understand your business and identify opportunities. No sales pressure. No hidden agenda.</p>
-      </div>
-
-      <div class="reveal" style="margin: var(--spacing-2xl) 0;">
-        <h3 style="color: var(--color-accent); margin-bottom: var(--spacing-md);">How long does automation take to build?</h3>
-        <p>It depends on complexity, but most projects take 4-12 weeks from start to full deployment. We provide a timeline during the consultation.</p>
-      </div>
-
-      <div class="reveal" style="margin: var(--spacing-2xl) 0;">
-        <h3 style="color: var(--color-accent); margin-bottom: var(--spacing-md);">What if we're not ready to commit right away?</h3>
-        <p>That's fine. We'll share a roadmap and priorities. You can start small or build out a full strategy. Your timeline, your pace.</p>
-      </div>
-
-      <div class="reveal" style="margin: var(--spacing-2xl) 0;">
-        <h3 style="color: var(--color-accent); margin-bottom: var(--spacing-md);">Do you work with companies our size?</h3>
-        <p>We specialize in growth-stage companies: agencies, e-commerce stores, and service businesses with $500K to $10M+ revenue. If you fit that profile, we can help.</p>
-      </div>
-
-      <div class="reveal" style="margin: var(--spacing-2xl) 0;">
-        <h3 style="color: var(--color-accent); margin-bottom: var(--spacing-md);">What's your pricing model?</h3>
-        <p>We work on fixed-price projects based on scope. During the consultation, we'll outline exactly what you'll invest and what you'll gain.</p>
-      </div>
-
-      <div class="reveal" style="margin: var(--spacing-2xl) 0;">
-        <h3 style="color: var(--color-accent); margin-bottom: var(--spacing-md);">Can you integrate with our existing tools?</h3>
-        <p>Almost always. We work with all major platforms: CRMs, e-commerce tools, email platforms, accounting software, and more. We build bridges, not replacements.</p>
+      <div class="booking-area reveal">
+        <h2>Book Your Call</h2>
+        <p style="margin:0;color:#cbd5e1;">Share a few details about your workflows and goals. We’ll review and meet you with a clear, calm agenda.</p>
+        <div class="meta-chips" aria-label="Call details near booking">
+          <span class="meta-chip">⏱️ 30 minutes</span>
+          <span class="meta-chip">✅ Free of charge</span>
+        </div>
+        <div class="form-placeholder" aria-label="Booking form placeholder">
+          <div>Booking form will be embedded here.</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Who this is for -->
+  <section class="section">
+    <div class="container">
+      <h2 class="reveal">Who this is for</h2>
+      <div class="audience-grid" id="audience-grid"></div>
+    </div>
+  </section>
+
+  <!-- What happens after the call -->
+  <section class="section">
+    <div class="container">
+      <h2 class="reveal">What happens after the call</h2>
+      <div class="after-call reveal" id="after-call"></div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section">
+    <div class="container final-cta reveal">
+      <h2>Ready when you are</h2>
+      <p>The call is exploratory and optional. If it’s a fit, great — if not, you’ll still leave with clarity.</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a href="book-a-call.html" class="btn btn-primary">Book a call</a>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="container">
       <div class="footer-section">
@@ -154,6 +407,66 @@
     </div>
   </footer>
 
+  <script>
+    const flowData = [
+      { icon: '📋', title: 'Your current process', desc: 'How you work today and what tools you use.' },
+      { icon: '⛓️', title: 'Bottlenecks & manual work', desc: 'Where time is lost or handoffs break.' },
+      { icon: '⚙️', title: 'Automation possibilities', desc: 'Ideas to streamline and standardize the workflow.' },
+      { icon: '➡️', title: 'Next steps (if relevant)', desc: 'Only if it makes sense to continue.' }
+    ];
+
+    const audienceData = [
+      { icon: '🧭', title: 'Founders', desc: 'Looking for clarity and reliable processes.' },
+      { icon: '🤝', title: 'Sales & Operations Leads', desc: 'Needing consistent handoffs and follow-up.' },
+      { icon: '🛠️', title: 'Teams handling manual workflows', desc: 'Ready to replace repetitive steps with systems.' }
+    ];
+
+    const afterCallData = [
+      { icon: '📝', text: 'Summary of your use case and context.' },
+      { icon: '🎯', text: 'Clear recommendation on whether automation makes sense.' },
+      { icon: '📌', text: 'Optional next steps — only if you want them.' }
+    ];
+
+    function renderFlow() {
+      const wrap = document.getElementById('flow-steps');
+      wrap.innerHTML = flowData.map(item => `
+        <article class="flow-card reveal">
+          <div class="icon-circle">${item.icon}</div>
+          <h3 class="flow-title">${item.title}</h3>
+          <p class="flow-desc">${item.desc}</p>
+        </article>
+      `).join('');
+    }
+
+    function renderAudience() {
+      const wrap = document.getElementById('audience-grid');
+      wrap.innerHTML = audienceData.map(item => `
+        <div class="audience-card reveal">
+          <div class="icon-circle">${item.icon}</div>
+          <div>
+            <div style="font-weight:700; color:#fff;">${item.title}</div>
+            <div style="color:#cbd5e1;">${item.desc}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderAfterCall() {
+      const wrap = document.getElementById('after-call');
+      wrap.innerHTML = afterCallData.map(item => `
+        <div class="after-item">
+          <div class="icon-circle">${item.icon}</div>
+          <div style="color:#cbd5e1;">${item.text}</div>
+        </div>
+      `).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderFlow();
+      renderAudience();
+      renderAfterCall();
+    });
+  </script>
   <script src="../script.js"></script>
 </body>
 </html>

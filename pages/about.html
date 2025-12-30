@@ -3,12 +3,230 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About Adelvo Agency - AI Automation Experts">
-  <title>About - Adelvo Agency</title>
+  <meta name="description" content="About Adelvo - AI automation built for clarity, efficiency, and reliable outcomes.">
+  <title>About - Adelvo</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    :root {
+      --about-bg: #030508;
+      --about-card: #0b0f19;
+      --about-line: rgba(102, 252, 241, 0.2);
+    }
+    .about-page {
+      background: var(--about-bg);
+      color: #e5e7eb;
+      font-family: var(--font-family);
+    }
+    .about-page h1,
+    .about-page h2,
+    .about-page h3,
+    .about-page h4 {
+      color: #fff;
+    }
+    .about-page .section {
+      padding: clamp(3rem, 6vw, 4.75rem) 0;
+    }
+    /* Hero */
+    .about-hero {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(80% 80% at 60% 20%, rgba(102,252,241,0.08), transparent 60%), var(--about-bg);
+    }
+    .about-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.85) 100%);
+      z-index: 0;
+    }
+    .about-hero .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .about-label {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #66fcf1;
+      font-weight: 700;
+    }
+    .about-subheadline {
+      max-width: 760px;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+    .hero-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(102,252,241,0.45), transparent);
+      margin-top: 1.25rem;
+      border: none;
+    }
+    /* About main */
+    .about-main {
+      display: grid;
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: start;
+    }
+    .about-text {
+      display: grid;
+      gap: 1rem;
+    }
+    .about-text p {
+      margin: 0;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+    .about-text ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+    .about-icons {
+      display: grid;
+      gap: 0.9rem;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .icon-card {
+      background: var(--about-card);
+      border: 1px solid var(--about-line);
+      border-radius: 0.85rem;
+      padding: 1rem;
+      display: grid;
+      gap: 0.4rem;
+      align-items: start;
+    }
+    .icon-circle {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.75rem;
+      display: grid;
+      place-items: center;
+      background: rgba(102, 252, 241, 0.12);
+      color: #66fcf1;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    /* Divider */
+    .soft-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(102,252,241,0.25), transparent);
+      margin: clamp(2rem, 5vw, 3rem) 0;
+      border: none;
+    }
+    /* Founder */
+    .founder {
+      display: grid;
+      gap: clamp(1.5rem, 3vw, 2rem);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: start;
+    }
+    .founder-portrait {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      background: radial-gradient(80% 80% at 50% 20%, rgba(102,252,241,0.12), rgba(0,0,0,0.85));
+      min-height: 320px;
+      display: grid;
+      place-items: center;
+      color: #66fcf1;
+      font-size: 1.4rem;
+      border: 1px solid var(--about-line);
+    }
+    .founder-card {
+      background: var(--about-card);
+      border: 1px solid var(--about-line);
+      border-radius: 1rem;
+      padding: clamp(1.5rem, 3vw, 2rem);
+      display: grid;
+      gap: 0.9rem;
+    }
+    .founder-card p {
+      margin: 0;
+      color: #cbd5e1;
+      line-height: 1.65;
+    }
+    .founder-name {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .founder-name::before {
+      content: "";
+      width: 2px;
+      height: 1.5rem;
+      background: #66fcf1;
+      border-radius: 999px;
+      display: inline-block;
+    }
+    /* Principles */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .principle-card {
+      background: var(--about-card);
+      border: 1px solid var(--about-line);
+      border-radius: 0.85rem;
+      padding: 1rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .principle-card .icon-circle {
+      width: 2.3rem;
+      height: 2.3rem;
+      border-radius: 0.7rem;
+      font-size: 1rem;
+    }
+    /* CTA */
+    .about-cta {
+      background: var(--about-card);
+      border: 1px solid var(--about-line);
+      border-radius: 1rem;
+      padding: clamp(1.8rem, 4vw, 2.4rem);
+      text-align: center;
+      display: grid;
+      gap: 0.75rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .about-cta p {
+      margin: 0;
+      color: #cbd5e1;
+    }
+    /* Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+    .is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 768px) {
+      .about-page .section {
+        padding: 2.5rem 0;
+      }
+      .about-hero .container {
+        gap: 0.8rem;
+      }
+      .about-icons {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+    }
+  </style>
 </head>
-<body>
-  <!-- HEADER & NAVIGATION -->
+<body class="about-page">
   <header>
     <div class="container">
       <div class="header-content">
@@ -27,137 +245,86 @@
     </div>
   </header>
 
-  <!-- PAGE HERO -->
+  <!-- Hero -->
+  <section class="section about-hero">
+    <div class="container">
+      <p class="about-label reveal">ABOUT</p>
+      <h1 class="reveal">About Adelvo</h1>
+      <p class="about-subheadline reveal">Adelvo builds clear, reliable automation systems so teams can operate with less manual work and more consistent outcomes.</p>
+      <hr class="hero-divider reveal" aria-hidden="true">
+    </div>
+  </section>
+
+  <!-- About Adelvo -->
   <section class="section">
     <div class="container">
-      <div class="hero reveal">
-        <h1>About Adelvo</h1>
-        <p class="subheading">We build AI workflows that deliver real results. No hype. No overcomplicated solutions. Just effective automation that works.</p>
+      <div class="about-main">
+        <div class="about-text reveal">
+          <h2>About Adelvo</h2>
+          <p>Adelvo designs and implements AI-driven automation systems for sales, operations, and content workflows.</p>
+          <p>The focus is not on tools or trends, but on clear, reliable systems that reduce manual work and create consistent outcomes.</p>
+          <p>Adelvo works with businesses where processes have grown complex, fragmented, or inefficient. Typical challenges include lead handling, outreach, internal coordination, reporting, and content production. These workflows are translated into structured automations that integrate seamlessly into existing operations.</p>
+          <p>The approach is pragmatic and execution-focused:</p>
+          <ul>
+            <li>real business use cases instead of experiments</li>
+            <li>measurable impact instead of vague promises</li>
+            <li>automation that supports teams, not replaces them</li>
+          </ul>
+          <p>Adelvo is built for companies that value clarity, efficiency, and long-term scalability in how their work gets done.</p>
+        </div>
+        <div class="about-icons reveal" id="about-icons"></div>
       </div>
     </div>
   </section>
 
-  <!-- WHO WE ARE -->
+  <!-- Divider -->
+  <div class="soft-divider" aria-hidden="true"></div>
+
+  <!-- Founder -->
   <section class="section">
     <div class="container">
-      <h2 class="reveal">Who We Are</h2>
-      <p>Adelvo is a specialized AI automation agency. We work with agencies, e-commerce businesses, and service companies that are ready to scale beyond manual processes.</p>
-      <p>We're not consultants who hand off reports. We're not offshore outsourcing. We're engineers and automation specialists who actually build, test, and maintain your workflows. We take ownership of your automation success.</p>
-    </div>
-  </section>
-
-  <!-- WHAT WE DO -->
-  <section class="section section-alt">
-    <div class="container">
-      <h2 class="reveal">What We Do</h2>
-      <div class="card-grid">
-        <div class="card reveal">
-          <h3>We Understand Your Business</h3>
-          <p>Before building anything, we map your workflows, understand your pain points, and identify where automation creates real value. We don't automate for automation's sake.</p>
+      <div class="founder">
+        <div class="founder-portrait reveal" aria-hidden="true">
+          <span>Founder</span>
         </div>
-        
-        <div class="card reveal">
-          <h3>We Build Smart Workflows</h3>
-          <p>Custom AI workflows tailored to your specific business. Integrated with your existing tools. Tested thoroughly. Designed to scale with you.</p>
-        </div>
-        
-        <div class="card reveal">
-          <h3>We Deliver Results</h3>
-          <p>We measure success by your outcomes: time saved, revenue impact, and operational improvement. Every automation has clear ROI.</p>
-        </div>
-        
-        <div class="card reveal">
-          <h3>We Provide Support</h3>
-          <p>Implementation isn't the end. We monitor your workflows, optimize performance, and make improvements as your business evolves.</p>
+        <div class="founder-card reveal">
+          <h2>About the Founder</h2>
+          <div class="founder-name">Kris</div>
+          <p>Adelvo was founded by Kris, a systems-driven builder with a strong focus on structure, automation, and execution.</p>
+          <p>Kris works at the intersection of business logic and technical implementation. Over time, he has designed and built automation workflows across sales, operations, and content — always with the same principle in mind: most operational problems are not people problems, but system problems.</p>
+          <p>Rather than relying on abstract strategy or buzzwords, his work focuses on:</p>
+          <ul>
+            <li>breaking down real workflows into clear logic</li>
+            <li>identifying bottlenecks that slow teams down</li>
+            <li>building automation systems that are practical, maintainable, and measurable</li>
+          </ul>
+          <p>Kris is deeply involved in the design and implementation of each solution, ensuring that every automation aligns with actual business needs and can be used reliably in day-to-day operations.</p>
+          <p>Adelvo reflects this mindset: structured, focused, and built to create lasting operational leverage rather than short-term experimentation.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY US -->
+  <!-- Principles -->
   <section class="section">
     <div class="container">
-      <h2 class="reveal">Why Choose Adelvo</h2>
-      
-      <div class="reveal" style="margin: var(--spacing-2xl) 0;">
-        <h3 style="color: var(--color-accent); margin-bottom: var(--spacing-md);">Specialist, Not Generalist</h3>
-        <p>We focus on AI automation and workflow optimization. We're not web designers, marketers, or IT consultants. We do one thing and we do it well.</p>
-      </div>
-
-      <div class="reveal" style="margin: var(--spacing-2xl) 0;">
-        <h3 style="color: var(--color-accent); margin-bottom: var(--spacing-md);">Transparent Pricing</h3>
-        <p>No hidden fees. No surprise costs. You know exactly what you're investing and what you'll get back. ROI-focused from the start.</p>
-      </div>
-
-      <div class="reveal" style="margin: var(--spacing-2xl) 0;">
-        <h3 style="color: var(--color-accent); margin-bottom: var(--spacing-md);">Hands-On Approach</h3>
-        <p>We build your solutions, not hand off plans. Your success is directly tied to our expertise. We stay accountable to results.</p>
-      </div>
-
-      <div class="reveal" style="margin: var(--spacing-2xl) 0;">
-        <h3 style="color: var(--color-accent); margin-bottom: var(--spacing-md);">B2B Focused</h3>
-        <p>We understand business operations. We speak your language. We don't waste time on consumer-focused solutions that don't fit your needs.</p>
-      </div>
-
-      <div class="reveal" style="margin: var(--spacing-2xl) 0;">
-        <h3 style="color: var(--color-accent); margin-bottom: var(--spacing-md);">Proven Track Record</h3>
-        <p>We've delivered 60+ successful automation workflows. Our clients see 3-6 month ROI. Retention rate above 90%.</p>
-      </div>
+      <h2 class="reveal">Working Principles</h2>
+      <div class="principles-grid" id="principles-grid"></div>
     </div>
   </section>
 
-  <!-- OUR EXPERTISE -->
-  <section class="section section-alt">
-    <div class="container">
-      <h2 class="reveal">Our Expertise</h2>
-      <p style="margin-bottom: var(--spacing-xl);">We specialize in:</p>
-      
-      <div class="card-grid">
-        <div class="card reveal">
-          <h3>Lead Qualification & Nurturing</h3>
-          <p>AI-powered scoring, segmentation, and automated follow-up sequences that keep sales focused on hot leads.</p>
-        </div>
-        
-        <div class="card reveal">
-          <h3>Content & Report Generation</h3>
-          <p>Automated proposal creation, report generation, and personalized content delivery at scale.</p>
-        </div>
-        
-        <div class="card reveal">
-          <h3>Customer Support Automation</h3>
-          <p>Intelligent ticket triage, FAQ automation, and seamless escalation to human agents.</p>
-        </div>
-        
-        <div class="card reveal">
-          <h3>Order & Fulfillment</h3>
-          <p>End-to-end e-commerce automation from purchase to delivery, with real-time inventory management.</p>
-        </div>
-        
-        <div class="card reveal">
-          <h3>Data Integration</h3>
-          <p>API-driven data pipelines connecting your entire tech stack. Real-time synchronization. Single source of truth.</p>
-        </div>
-        
-        <div class="card reveal">
-          <h3>Custom Workflows</h3>
-          <p>Unique workflows built specifically for your business. No templates. Built to your exact needs.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA SECTION -->
+  <!-- Final CTA -->
   <section class="section">
-    <div class="container">
-      <div class="cta-section reveal reveal-scale">
-        <h2>Let's Talk About Your Business</h2>
-        <p>We'd love to learn about your workflows and explore how automation can drive growth.</p>
-        <a href="book-a-call.html" class="btn btn-primary">Schedule a Free Consultation</a>
+    <div class="container about-cta reveal">
+      <h2>Want to work with Adelvo?</h2>
+      <p>Tell us about your workflows, and we’ll map the automation that brings clarity and consistency.</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a href="book-a-call.html" class="btn btn-primary">Book a call</a>
+        <a href="mailto:hello@adelvo.com" class="btn btn-secondary">Contact</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-section">
@@ -194,6 +361,46 @@
     </div>
   </footer>
 
+  <script>
+    const aboutIconData = [
+      { icon: '⚙️', title: 'Automation' },
+      { icon: '🧭', title: 'Systems' },
+      { icon: '⏱️', title: 'Efficiency' },
+      { icon: '📈', title: 'Scalability' }
+    ];
+
+    const principlesData = [
+      { icon: '📐', title: 'Structure over chaos' },
+      { icon: '🚀', title: 'Execution over theory' },
+      { icon: '🛠️', title: 'Systems over manual work' },
+      { icon: '🔍', title: 'Clarity over complexity' }
+    ];
+
+    function renderIconCards() {
+      const wrap = document.getElementById('about-icons');
+      wrap.innerHTML = aboutIconData.map(item => `
+        <div class="icon-card reveal">
+          <div class="icon-circle">${item.icon}</div>
+          <h3 style="margin:0;">${item.title}</h3>
+        </div>
+      `).join('');
+    }
+
+    function renderPrinciples() {
+      const wrap = document.getElementById('principles-grid');
+      wrap.innerHTML = principlesData.map(item => `
+        <div class="principle-card reveal">
+          <div class="icon-circle">${item.icon}</div>
+          <div>${item.title}</div>
+        </div>
+      `).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderIconCards();
+      renderPrinciples();
+    });
+  </script>
   <script src="../script.js"></script>
 </body>
 </html>

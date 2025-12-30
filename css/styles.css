@@ -219,6 +219,12 @@ spline-viewer {
   background: transparent !important;
 }
 
+@media (max-width: 768px) {
+  .spline-bg {
+    display: none;
+  }
+}
+
 .hero-content {
   position: absolute;
   top: 0;

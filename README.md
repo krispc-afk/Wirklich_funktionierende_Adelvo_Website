@@ -57,7 +57,7 @@ All colors are defined as CSS variables in `css/styles.css` for easy updates.
 #### Update Company Information
 Edit all pages and change:
 - Company name: Replace "Adelvo" throughout
-- Email: `hello@adelvo.com` → your email
+- Email: `info@adelvo-global.ae` → your email
 - Phone: Add your phone number in relevant places
 
 #### Add Calendly Integration

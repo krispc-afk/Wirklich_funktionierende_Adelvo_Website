@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const nav = document.querySelector('nav');
   const navLinks = document.querySelectorAll('nav a');
   const revealElements = document.querySelectorAll('.reveal');
+  const faqQuestions = document.querySelectorAll('.faq-question');
   
   // Mobile menu toggle
   if (navToggle) {
@@ -21,12 +22,15 @@ document.addEventListener('DOMContentLoaded', function() {
       nav.classList.remove('active');
     });
   });
-  
+
   // Set active link based on current page
   setActiveNavLink();
 
   // Scroll reveal animations
   initScrollReveal(revealElements);
+
+  // FAQ accordion
+  initFaqAccordion(faqQuestions);
 });
 
 function setActiveNavLink() {
@@ -85,4 +89,26 @@ function initScrollReveal(nodes) {
   }, { threshold: 0.15 });
 
   nodes.forEach(node => observer.observe(node));
+}
+
+function initFaqAccordion(questions) {
+  if (!questions || questions.length === 0) return;
+
+  questions.forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.closest('.faq-item');
+      const isOpen = item.classList.contains('active');
+
+      questions.forEach(btn => {
+        const parent = btn.closest('.faq-item');
+        parent.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        item.classList.add('active');
+        question.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 }

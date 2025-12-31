@@ -121,7 +121,7 @@ Choose your hosting:
 
 ### Content
 - [ ] Company name updated throughout
-- [ ] Email address correct (hello@adelvo.com → your email)
+- [ ] Email address correct (info@adelvo-global.ae → your email)
 - [ ] Services match your actual offerings
 - [ ] Use cases match your target industries
 - [ ] About section reflects your expertise
@@ -166,7 +166,7 @@ Search `Adelvo` and replace with your company name in:
 - Page titles
 
 ### Change Email
-Replace `hello@adelvo.com` with your email in:
+Replace `info@adelvo-global.ae` with your email in:
 - Calendly page
 - Footer
 - Legal pages

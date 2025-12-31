@@ -194,7 +194,7 @@
 - Contact info
 
 **Required Updates**:
-- Your email address (hello@adelvo.com)
+- Your email address (info@adelvo-global.ae)
 - Company name where applicable
 - Specific data practices
 - Any jurisdiction-specific requirements

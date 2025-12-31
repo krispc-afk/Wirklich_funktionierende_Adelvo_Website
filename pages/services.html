@@ -162,6 +162,72 @@
       color: var(--color-accent);
       margin-right: 0.35rem;
     }
+    .service-offer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1.25rem, 3vw, 1.75rem);
+    }
+    .service-offer-card {
+      background: radial-gradient(circle at 10% 10%, rgba(102, 252, 241, 0.08), rgba(102, 252, 241, 0.02) 38%), #0b0f19;
+      border: 1px solid rgba(102, 252, 241, 0.16);
+      border-radius: 0.9rem;
+      padding: clamp(1.75rem, 3vw, 2.25rem);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+    }
+    .service-offer-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(130deg, rgba(102, 252, 241, 0.12), rgba(69, 162, 158, 0.08));
+      opacity: 0;
+      transition: opacity 200ms ease;
+      pointer-events: none;
+    }
+    .service-offer-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(102, 252, 241, 0.3);
+      box-shadow: 0 12px 42px rgba(0, 0, 0, 0.45);
+    }
+    .service-offer-card:hover::after {
+      opacity: 1;
+    }
+    .offer-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .service-offer-card h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: #ffffff;
+      letter-spacing: 0.01em;
+    }
+    .offer-block {
+      display: grid;
+      gap: 0.35rem;
+    }
+    .offer-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--color-accent);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .offer-block p {
+      margin: 0;
+      color: #CBD5E1;
+      line-height: 1.65;
+      font-size: 1rem;
+    }
     .process-steps {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -222,6 +288,55 @@
       margin: 0;
       color: #CBD5E1;
       line-height: 1.6;
+    }
+    .industry-card {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 12% 12%, rgba(102, 252, 241, 0.08), rgba(102, 252, 241, 0.02) 42%), #0b0f19;
+      border: 1px solid rgba(102, 252, 241, 0.18);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+    .industry-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(102, 252, 241, 0.32);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+    }
+    .industry-card p {
+      margin-bottom: 0.35rem;
+    }
+    .industry-icon {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.85rem;
+      background: rgba(102, 252, 241, 0.12);
+      color: #d7fbf7;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .industry-points {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.35rem;
+      color: #E2E8F0;
+      line-height: 1.5;
+      font-size: 0.98rem;
+    }
+    .industry-points li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.4rem;
+      align-items: start;
+    }
+    .industry-points li::before {
+      content: "•";
+      color: var(--color-accent);
+      font-weight: 700;
+      line-height: 1;
     }
     .outcomes-list {
       display: grid;
@@ -301,6 +416,7 @@
         aspect-ratio: 16 / 10;
       }
       .services-card-grid,
+      .service-offer-grid,
       .process-steps,
       .audience-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -320,6 +436,7 @@
         font-size: 1rem;
       }
       .services-card-grid,
+      .service-offer-grid,
       .process-steps,
       .audience-grid {
         grid-template-columns: 1fr;
@@ -390,42 +507,59 @@
   <section class="section">
     <div class="container">
       <h2 class="reveal" style="color: #FFFFFF; margin-bottom: 2rem;">Core Services</h2>
-      <div class="services-card-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 1.75rem);">
-        <div class="services-card services-card--featured reveal">
-          <div class="service-badge">Most Popular</div>
-          <h3>Sales &amp; CRM Automation</h3>
-          <div class="service-subline">Best starting point for most businesses</div>
-          <p>Automate lead capture, qualification, follow-ups, and CRM updates so no opportunity is missed.</p>
-          <div class="includes-title">Includes</div>
-          <ul>
-            <li>Lead routing and qualification</li>
-            <li>Automated follow-ups and reminders</li>
-            <li>CRM cleanup and pipeline automation</li>
-            <li>Inbox and calendar automation</li>
-          </ul>
+      <div class="service-offer-grid">
+        <div class="service-offer-card reveal">
+          <div class="offer-header">
+            <h3>🧩 CRM Automation</h3>
+          </div>
+          <div class="offer-block">
+            <div class="offer-label">Problem</div>
+            <p>Leads sit in inboxes, reps update the CRM late, and pipeline data is wrong — so follow-ups are slow or missed.</p>
+          </div>
+          <div class="offer-block">
+            <div class="offer-label">Automation</div>
+            <p>Capture every lead from forms, chat, and email, auto-enrich, qualify, and route to the right rep; trigger sequences and calendar holds instantly.</p>
+          </div>
+          <div class="offer-block">
+            <div class="offer-label">Result</div>
+            <p>Faster first response, accurate pipeline, and a predictable handoff with no manual CRM clean-up.</p>
+          </div>
         </div>
-        <div class="services-card reveal">
-          <h3>Operations &amp; Internal Workflows</h3>
-          <p>Remove manual admin work by connecting tools, data, and internal processes into one automated system.</p>
-          <div class="includes-title">Includes</div>
-          <ul>
-            <li>Internal task automation</li>
-            <li>Tool-to-tool integrations</li>
-            <li>Automated reporting and dashboards</li>
-            <li>Process standardization</li>
-          </ul>
+
+        <div class="service-offer-card reveal">
+          <div class="offer-header">
+            <h3>✍️ Social Media Scripting</h3>
+          </div>
+          <div class="offer-block">
+            <div class="offer-label">Problem</div>
+            <p>Channels go quiet because writing, formatting, and scheduling content eats time; posts ship late or not at all.</p>
+          </div>
+          <div class="offer-block">
+            <div class="offer-label">Automation</div>
+            <p>Turn briefs into platform-ready scripts and captions, auto-generate variations, and schedule across channels with tracking baked in.</p>
+          </div>
+          <div class="offer-block">
+            <div class="offer-label">Result</div>
+            <p>Consistent output, faster publishing, and measurable engagement without manual scripting sprints.</p>
+          </div>
         </div>
-        <div class="services-card reveal">
-          <h3>Custom AI Systems</h3>
-          <div class="service-subline">AI agents and decision-based automations that live inside your tools — not generic chatbots.</div>
-          <p>Tailored AI solutions that act on your data, follow your business logic, and run across your existing stack.</p>
-          <div class="includes-title">Includes</div>
-          <ul>
-            <li>AI agents for sales, support, or operations</li>
-            <li>Decision-based workflows (if X happens → do Y)</li>
-            <li>Data processing and enrichment across tools</li>
-            <li>Scalable automation architecture</li>
-          </ul>
+
+        <div class="service-offer-card reveal">
+          <div class="offer-header">
+            <h3>📞 AI Phone Callers</h3>
+          </div>
+          <div class="offer-block">
+            <div class="offer-label">Problem</div>
+            <p>Inbound calls get missed and outbound follow-ups stall because humans can’t dial fast enough or 24/7.</p>
+          </div>
+          <div class="offer-block">
+            <div class="offer-label">Automation</div>
+            <p>AI callers qualify leads, book meetings, and escalate issues using your scripts, CRMs, and calendars — with live notes pushed back.</p>
+          </div>
+          <div class="offer-block">
+            <div class="offer-label">Result</div>
+            <p>Higher connect rates, more booked calls, and zero lag between interest and conversation.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -436,22 +570,22 @@
       <h2 class="reveal" style="color: #FFFFFF; margin-bottom: 2rem;">How Our Service Works</h2>
       <div class="process-steps">
         <div class="process-card reveal">
-          <div class="process-label">Week 1 — Process Audit</div>
+          <div class="process-label">🔍 Week 1 — Process Audit</div>
           <h3>Process Audit</h3>
           <p>We analyze your sales and operations to identify high-impact automation opportunities.</p>
         </div>
         <div class="process-card reveal">
-          <div class="process-label">Week 2 — System Design</div>
+          <div class="process-label">🧠 Week 2 — System Design</div>
           <h3>System Design</h3>
           <p>We design a custom automation blueprint tailored to your tools and workflows.</p>
         </div>
         <div class="process-card reveal">
-          <div class="process-label">Week 3 — Build &amp; Integration</div>
+          <div class="process-label">🛠️ Week 3 — Build &amp; Integration</div>
           <h3>Build &amp; Integration</h3>
           <p>We implement automations and connect CRM, inbox, calendar, and internal systems.</p>
         </div>
         <div class="process-card reveal">
-          <div class="process-label">Week 4 — Testing &amp; Optimization</div>
+          <div class="process-label">✅ Week 4 — Testing &amp; Optimization</div>
           <h3>Testing &amp; Optimization</h3>
           <p>We test, refine, and optimize everything until it runs reliably without manual work.</p>
         </div>
@@ -463,93 +597,102 @@
     <div class="container">
       <h2 class="reveal" style="color: #FFFFFF; margin-bottom: 1.5rem;">Who This Is For</h2>
       <div class="audience-grid">
-        <div class="audience-card reveal">
-          <h3>Agencies</h3>
-          <p>Scale operations without hiring more people.</p>
+        <div class="audience-card industry-card reveal">
+          <div class="industry-icon">🛒</div>
+          <h3>E-Commerce</h3>
+          <p>High intent leads and orders pile up; support queues and follow-ups slow down repeat sales.</p>
+          <ul class="industry-points">
+            <li>Lead &amp; order data auto-synced to CRM and messaging.</li>
+            <li>Post-purchase follow-ups and win-back flows trigger without manual work.</li>
+            <li>Support triage → routing → status updates handled automatically.</li>
+          </ul>
         </div>
-        <div class="audience-card reveal">
-          <h3>E-commerce</h3>
-          <p>Automate lead handling, order workflows, and customer communication.</p>
+        <div class="audience-card industry-card reveal">
+          <div class="industry-icon">🏠</div>
+          <h3>Real Estate</h3>
+          <p>Portals send leads faster than teams can qualify; scheduling and CRM upkeep lag.</p>
+          <ul class="industry-points">
+            <li>Instant lead qualification, scoring, and routing from portal/inbound sources.</li>
+            <li>Auto-call or SMS to book viewings and confirmations directly to calendars.</li>
+            <li>CRM cleanup: notes, stage changes, and follow-ups logged without manual entry.</li>
+          </ul>
         </div>
-        <div class="audience-card reveal">
-          <h3>Service Businesses</h3>
-          <p>Reduce admin work and improve response times.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2 class="reveal" style="color: #FFFFFF; margin-bottom: 1.5rem;">Typical Automations We Build</h2>
-      <ul class="outcomes-list reveal" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-        <li>Lead → CRM → qualification → calendar booking</li>
-        <li>Form submission → scoring → Slack alert → follow-up sequence</li>
-        <li>Order → invoice → fulfillment → internal reporting</li>
-        <li>Missed lead → reminder → automatic re-engagement</li>
-        <li>Inbox → categorization → priority routing</li>
-        <li>Support ticket → triage → assignment → status updates</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2 class="reveal" style="color: #FFFFFF; margin-bottom: 1.5rem;">Outcomes</h2>
-      <div class="services-card-grid">
-        <div class="services-card reveal">
-          <h3 style="margin-bottom: 0.4rem;">No Missed Revenue</h3>
-          <p style="margin: 0;">Every lead is captured, qualified, and followed up automatically.</p>
-        </div>
-        <div class="services-card reveal">
-          <h3 style="margin-bottom: 0.4rem;">Zero Manual Follow-Ups</h3>
-          <p style="margin: 0;">Sales processes run without reminders or manual chasing.</p>
-        </div>
-        <div class="services-card reveal">
-          <h3 style="margin-bottom: 0.4rem;">One Clear System</h3>
-          <p style="margin: 0;">All tools and data unified into a single operational flow.</p>
-        </div>
-        <div class="services-card reveal">
-          <h3 style="margin-bottom: 0.4rem;">Operational Visibility</h3>
-          <p style="margin: 0;">Real-time clarity across sales and operations.</p>
-        </div>
-        <div class="services-card reveal">
-          <h3 style="margin-bottom: 0.4rem;">Fewer Errors</h3>
-          <p style="margin: 0;">Automation replaces manual handoffs and broken processes.</p>
-        </div>
-        <div class="services-card reveal">
-          <h3 style="margin-bottom: 0.4rem;">Reliable Automations</h3>
-          <p style="margin: 0;">Systems that run continuously without babysitting.</p>
+        <div class="audience-card industry-card reveal">
+          <div class="industry-icon">🍽️</div>
+          <h3>Restaurants</h3>
+          <p>Calls and reservation requests get missed; no-shows hurt covers and teams stay on the phone.</p>
+          <ul class="industry-points">
+            <li>AI phone callers take reservations, answer FAQs, and capture intent 24/7.</li>
+            <li>Automated confirmations, reminders, and no-show reduction flows.</li>
+            <li>Special requests and changes routed to staff with live updates to booking systems.</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section before-after-section">
     <div class="container">
-      <h2 class="reveal" style="color: #FFFFFF; margin-bottom: 1rem;">FAQ</h2>
-      <div class="audience-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-        <div class="audience-card reveal">
-          <h3>How long does implementation take?</h3>
-          <p>We build and deploy in roughly 30 days with clear weekly milestones.</p>
+      <h2 class="center-heading reveal">From Manual Work to Scalable Systems</h2>
+      
+      <div class="before-after-table reveal">
+        <div class="table-header">Before</div>
+        <div class="table-header">After</div>
+
+        <div class="cell before">
+          <div class="contentRow">
+            <div class="text">Manual processes</div>
+          </div>
         </div>
-        <div class="audience-card reveal">
-          <h3>Do you work with my existing tools?</h3>
-          <p>Yes. We integrate with your current stack so nothing breaks or gets replaced.</p>
+
+        <div class="cell after">
+          <div class="contentRow">
+            <span class="emoji">⚙️</span>
+            <div class="text">Automated workflows</div>
+          </div>
         </div>
-        <div class="audience-card reveal">
-          <h3>Is everything custom or template-based?</h3>
-          <p>Everything is custom to your workflows, data, and logic—no off-the-shelf bots.</p>
+
+        <div class="cell before">
+          <div class="contentRow">
+            <div class="text">Missed follow-ups</div>
+          </div>
         </div>
-        <div class="audience-card reveal">
-          <h3>What happens after the first 30 days?</h3>
-          <p>We hand off production-ready automations and can support ongoing optimization.</p>
+
+        <div class="cell after">
+          <div class="contentRow">
+            <span class="emoji">⚡</span>
+            <div class="text">Instant responses</div>
+          </div>
         </div>
-        <div class="audience-card reveal">
-          <h3>How much time do I need to invest?</h3>
-          <p>Plan on short weekly check-ins; we handle the heavy lifting and implementation.</p>
+
+        <div class="cell before">
+          <div class="contentRow">
+            <div class="text">Scattered tools</div>
+          </div>
+        </div>
+
+        <div class="cell after">
+          <div class="contentRow">
+            <span class="emoji">🧠</span>
+            <div class="text">Centralized systems</div>
+          </div>
+        </div>
+
+        <div class="cell before">
+          <div class="contentRow">
+            <div class="text">No clear overview</div>
+          </div>
+        </div>
+
+        <div class="cell after">
+          <div class="contentRow">
+            <span class="emoji">👁️</span>
+            <div class="text">Clear visibility</div>
+          </div>
         </div>
       </div>
+      
+      <p class="before-after-tagline">Faster execution. Fewer errors. Scalable operations.</p>
     </div>
   </section>
 
@@ -560,6 +703,80 @@
         <p>Most clients start with a free automation audit to identify their biggest time leaks.</p>
         <p>Let’s identify where automation can save you the most time and money — fast.</p>
         <a href="book-a-call.html" class="btn btn-primary">Book a Free Automation Call</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container">
+      <h2 class="reveal" style="text-align: center;">FAQ</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Why should I go with your agency?</button>
+          <div class="faq-answer">
+            <p>Large agencies sell standardized packages.<br>We work with a small number of clients and build tailored AI automations based on real business processes. That’s where measurable results come from.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">What exactly does Adelvo do?</button>
+          <div class="faq-answer">
+            <p>We design and implement AI automations that reduce manual work, increase speed, and improve decision-making across sales, operations, and internal workflows.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Who is Adelvo a good fit for?</button>
+          <div class="faq-answer">
+            <p>Adelvo works best with founders and teams who already have real processes in place and want to scale without adding more headcount.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">What industries do you work with?</button>
+          <div class="faq-answer">
+            <p>We mainly work with service businesses, e-commerce, real estate, and operations-heavy companies.<br>If processes repeat, AI can automate them.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Do you use off-the-shelf AI tools?</button>
+          <div class="faq-answer">
+            <p>No. We combine proven tools with tailored workflows built around your systems, data, and constraints. No generic setups.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">How long does it take to see results?</button>
+          <div class="faq-answer">
+            <p>First usable automations usually go live within 2–4 weeks, depending on complexity and data access.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Do I need technical knowledge to work with you?</button>
+          <div class="faq-answer">
+            <p>No. We translate business needs into automation. You focus on outcomes, not tools.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">How is this different from hiring a freelancer?</button>
+          <div class="faq-answer">
+            <p>Freelancers deliver tasks.<br>We design end-to-end systems, document them, and ensure they work in real operations.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">What happens after the automation is live?</button>
+          <div class="faq-answer">
+            <p>We monitor, optimize, and adapt the system as your business evolves. AI is not set-and-forget.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Is this a one-time project or an ongoing collaboration?</button>
+          <div class="faq-answer">
+            <p>Both are possible. Some clients start with a single workflow, others work with us long-term.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Still have a question?</button>
+          <div class="faq-answer">
+            <p>Contact us at info@adelvo-global.ae</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -587,7 +804,7 @@
       <div class="footer-section">
         <h4>Contact</h4>
         <ul>
-          <li><a href="mailto:hello@adelvo.com">hello@adelvo.com</a></li>
+          <li><a href="mailto:info@adelvo-global.ae">info@adelvo-global.ae</a></li>
           <li>Available for consultation</li>
         </ul>
       </div>
@@ -595,7 +812,7 @@
     
     <div class="footer-bottom">
       <div class="container">
-        <p>&copy; 2025 Adelvo Agency. All rights reserved.</p>
+        <p>© 2026 Adelvo Global. All rights reserved.</p>
       </div>
     </div>
   </footer>

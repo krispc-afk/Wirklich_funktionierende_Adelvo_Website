@@ -15,7 +15,7 @@
 **Step 1: Search and Replace**
 Find and replace across all files:
 - `Adelvo` → Your company name
-- `hello@adelvo.com` → Your email
+- `info@adelvo-global.ae` → Your email
 - `2025` → Current year
 
 **Files to update:**
